@@ -92,7 +92,7 @@ public class DataOra {
   @Override
   public boolean equals(Object d) {
     if (d instanceof Date) {
-      Data td = (Data) d;
+      DataOra td = (DataOra) d;
       if (this.ora == td.getOra() && this.minute == td.getMinute() && this.secunde == td.getSecunde() && this.anul == td.getAnul() && this.luna == td.getLuna() && this.ziua == td.getZiua())
         return true;
       else

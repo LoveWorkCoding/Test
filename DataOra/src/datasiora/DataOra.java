@@ -20,8 +20,15 @@ public class DataOra {
     this.anul = anul;
   }
 
-  public DataOra() {
+  @SuppressWarnings("deprecation")
+public DataOra() {
     this.d = new Date();
+    this.ora = d.getHours();
+    this.minute = d.getMinutes();
+    this.secunde = d.getSeconds();
+    this.ziua = d.getDay();
+    this.luna = d.getMonth();
+    this.anul = d.getYear();
   }
 
   public String timpScurs(DataOra t1, DataOra t2) {

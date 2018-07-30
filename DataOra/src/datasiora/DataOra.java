@@ -1,7 +1,8 @@
+package datasiora;
 
 import java.util.Date;
 
-public class Data {
+public class DataOra {
   private int ora;
   private int minute;
   private int secunde;
@@ -10,7 +11,7 @@ public class Data {
   private int ziua;
   private Date d;
 
-  public Data(int ora, int minute, int secunde, int ziua, int luna, int anul) {
+  public DataOra(int ora, int minute, int secunde, int ziua, int luna, int anul) {
     this.ora = ora;
     this.minute = minute;
     this.secunde = secunde;
@@ -19,11 +20,11 @@ public class Data {
     this.anul = anul;
   }
 
-  public Data() {
+  public DataOra() {
     this.d = new Date();
   }
 
-  public String timpScurs(Data t1, Data t2) {
+  public String timpScurs(DataOra t1, DataOra t2) {
 
     int ora = t1.ora - t2.ora;
     int minute = t1.minute - t2.minute;

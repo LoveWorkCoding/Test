@@ -1,6 +1,10 @@
 package datasiora;
 
+import java.util.logging.Logger;
+
 public class Obiecte {
+	
+	private static Logger l=Logger.getAnonymousLogger();
 	
 	private String obiect1;
 	private int obiect2;
@@ -13,7 +17,9 @@ public class Obiecte {
 		this.obiect3 = obiect3;
 	}
 	
-	
+	public static void testLogger(String s) {
+		l.info(s);
+	}
 	
 
 }

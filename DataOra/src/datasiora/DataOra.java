@@ -35,12 +35,38 @@ public DataOra() {
 
   public static String timpScurs(DataOra t1, DataOra t2) {
 
-    int ora = t1.ora - t2.ora;
-    int minute = t1.minute - t2.minute;
-    int secunde = t1.secunde - t2.secunde;
+    int ora = 0;
+    int minute = 0;
+    int secunde = 0;
     int ziua = t1.ziua - t2.ziua;
     int luna = t1.luna - t2.luna;
     int an = t1.anul - t2.anul;
+    if (t1.ora != 0 && t2.ora != 0)
+        ora = t2.ora - t1.ora;
+      else if (t1.ora == 0 && t2.ora != 0)
+        ora = t2.ora;
+      else if (t1.ora != 0 && t2.ora == 0)
+        ora = 24 - t1.ora;
+      if (ora == 0)
+        minute = t2.minute - t1.minute;
+      else {
+        minute = (60 - t1.minute) + t2.minute;
+        ora--;
+      }
+      if (minute > 59) {
+        minute = minute % 60;
+        ora++;
+      }
+      if (minute == 0)
+        secunde = t2.secunde - t1.secunde;
+      else {
+        secunde = (60 - t1.secunde) + t2.secunde;
+        minute--;
+      }
+      if (secunde > 59) {
+        secunde = secunde % 60;
+        minute++;
+      }
     return "Timpul scurs: " + ora + " : " + minute + " : " + secunde + " zile " + ziua + ", luni " + luna + ", ani " + an;
   }
 

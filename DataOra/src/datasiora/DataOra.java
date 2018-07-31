@@ -28,7 +28,7 @@ public DataOra() {
     this.ora = gregorianCalendar.HOUR;
     this.minute = gregorianCalendar.MINUTE;
     this.secunde = gregorianCalendar.SECOND;
-    this.ziua = gregorianCalendar.DAY_OF_WEEK;
+    this.ziua = gregorianCalendar.DAY_OF_MONTH;
     this.luna = gregorianCalendar.MONTH;
     this.anul = gregorianCalendar.YEAR;
   }

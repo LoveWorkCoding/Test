@@ -33,7 +33,7 @@ public DataOra() {
     this.anul = gregorianCalendar.YEAR;
   }
 
-  public String timpScurs(DataOra t1, DataOra t2) {
+  public static String timpScurs(DataOra t1, DataOra t2) {
 
     int ora = t1.ora - t2.ora;
     int minute = t1.minute - t2.minute;

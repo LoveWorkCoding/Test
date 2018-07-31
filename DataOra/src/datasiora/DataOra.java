@@ -1,6 +1,7 @@
 package datasiora;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class DataOra {
   private int ora;
@@ -10,6 +11,7 @@ public class DataOra {
   private int luna;
   private int ziua;
   private Date d;
+  private GregorianCalendar gregorianCalendar;
 
   public DataOra(int ora, int minute, int secunde, int ziua, int luna, int anul) {
     this.ora = ora;
@@ -20,15 +22,15 @@ public class DataOra {
     this.anul = anul;
   }
 
-  @SuppressWarnings("deprecation")
+  
 public DataOra() {
-    this.d = new Date();
-    this.ora = d.getHours();
-    this.minute = d.getMinutes();
-    this.secunde = d.getSeconds();
-    this.ziua = d.getDay();
-    this.luna = d.getMonth();
-    this.anul = d.getYear();
+    this.gregorianCalendar = new GregorianCalendar();
+    this.ora = gregorianCalendar.HOUR;
+    this.minute = gregorianCalendar.MINUTE;
+    this.secunde = gregorianCalendar.SECOND;
+    this.ziua = gregorianCalendar.DAY_OF_WEEK;
+    this.luna = gregorianCalendar.MONTH;
+    this.anul = gregorianCalendar.YEAR;
   }
 
   public String timpScurs(DataOra t1, DataOra t2) {

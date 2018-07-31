@@ -44,12 +44,6 @@ public DataOra() {
     return "Timpul scurs: " + ora + " : " + minute + " : " + secunde + " zile " + ziua + ", luni " + luna + ", ani " + an;
   }
 
-  public Date timpAdaugare() {
-
-    this.d = new Date();
-    return d;
-  }
-
   public void setOra(int ora) {
     this.ora = ora;
   }
@@ -100,7 +94,7 @@ public DataOra() {
 
   @Override
   public boolean equals(Object d) {
-    if (d instanceof Date) {
+    if (d instanceof GregorianCalendar) {
       DataOra td = (DataOra) d;
       if (this.ora == td.getOra() && this.minute == td.getMinute() && this.secunde == td.getSecunde() && this.anul == td.getAnul() && this.luna == td.getLuna() && this.ziua == td.getZiua())
         return true;

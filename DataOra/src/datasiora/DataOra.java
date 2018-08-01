@@ -89,6 +89,11 @@ public static int daysInMonth(int luna, int an) {
 
 public static String spentTime(DataOra dateTime1, DataOra dateTime2) {
 	
+	if(dateTime1.anul>dateTime2.anul) {
+		DataOra temp=dateTime2;
+		dateTime2=dateTime1;
+		dateTime1=temp;
+	}
 	int difYear=dateTime2.anul-dateTime1.anul;
 	int difMonth=dateTime2.luna-dateTime1.luna;
 	if(difMonth<0) {

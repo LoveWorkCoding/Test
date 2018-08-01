@@ -33,6 +33,17 @@ public DataOra() {
     this.anul = gregorianCalendar.YEAR;
   }
 
+public static DataOra spentTime(DataOra dateTime1, DataOra dateTime2) {
+	int difYear=dateTime2.anul-dateTime1.anul;
+	int difMonth=dateTime2.luna-dateTime1.luna;
+	int difDay=0;
+	int difHour=0;
+	int difMinutes=0;
+	int difSeconds=0;
+	
+	
+}
+
   public static String timpScurs(DataOra t1, DataOra t2) {
 
     int ora = 0;

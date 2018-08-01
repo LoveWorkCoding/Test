@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class DataOra {
+	
   private int ora;
   private int minute;
   private int secunde;
@@ -14,6 +15,7 @@ public class DataOra {
   private GregorianCalendar gregorianCalendar;
 
   public DataOra(int ora, int minute, int secunde, int ziua, int luna, int anul) {
+	  
     this.ora = ora;
     this.minute = minute;
     this.secunde = secunde;
@@ -24,6 +26,7 @@ public class DataOra {
 
   
 public DataOra() {
+	
     this.gregorianCalendar = new GregorianCalendar();
     this.ora = gregorianCalendar.HOUR;
     this.minute = gregorianCalendar.MINUTE;
@@ -33,8 +36,33 @@ public DataOra() {
     this.anul = gregorianCalendar.YEAR;
   }
 
+<<<<<<< HEAD
+=======
+public static int daysInMonth(int luna, int an) {
+	
+	int zileLuna=0;
+	if (luna==1 || luna==3 || luna==5 || luna==7 || luna==8 || luna==10 || luna==12){
+		return 31;
+	}
+	if (luna==4 || luna==6 || luna==9 || luna==11){
+		return 30;
+	}
+	if (luna==2){
+		return ((an%400==0)||(an%4==0 && an%100!=0))? 29:28;
+	}
+	return 0;
+}
+
+public static int compareDays(DataOra dateTime1, DataOra dateTime2) {
+	
+	int days=0;
+	return days;
+	
+}
+>>>>>>> 5b1c68c8dc9244410e140a046ee2fd71c0818ded
 
 public static DataOra spentTime(DataOra dateTime1, DataOra dateTime2) {
+	
 	int difYear=dateTime2.anul-dateTime1.anul;
 	int difMonth=dateTime2.luna-dateTime1.luna;
 	int difDay=0;
@@ -43,6 +71,7 @@ public static DataOra spentTime(DataOra dateTime1, DataOra dateTime2) {
 	int difSeconds=0;
 	return dateTime2;
 	
+	return new DataOra(difHour, difMinutes, difSeconds, difDay, difMonth, difYear);
 	
 }
 

@@ -1,5 +1,6 @@
 package datasiora;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -11,8 +12,7 @@ public class DataOra {
   private int anul;
   private int luna;
   private int ziua;
-  private Date d;
-  private GregorianCalendar gregorianCalendar;
+  private Calendar calendar=Calendar.getInstance();
 
   public DataOra(int ora, int minute, int secunde, int ziua, int luna, int anul) {
 	  
@@ -22,18 +22,19 @@ public class DataOra {
     this.ziua = ziua;
     this.luna = luna;
     this.anul = anul;
+    calendar.set(anul, luna, ziua, ora, minute, secunde);
   }
 
   
 public DataOra() {
 	
-    this.gregorianCalendar = new GregorianCalendar();
-    this.ora = gregorianCalendar.HOUR;
-    this.minute = gregorianCalendar.MINUTE;
-    this.secunde = gregorianCalendar.SECOND;
-    this.ziua = gregorianCalendar.DAY_OF_MONTH;
-    this.luna = gregorianCalendar.MONTH;
-    this.anul = gregorianCalendar.YEAR;
+	int year = calendar.get(Calendar.YEAR);
+    int month = calendar.get(Calendar.MONTH)+1;      
+    int day = calendar.get(Calendar.DAY_OF_MONTH);
+    int hour = calendar.get(Calendar.HOUR_OF_DAY);
+    int minute = calendar.get(Calendar.MINUTE);
+    int second = calendar.get(Calendar.SECOND);
+    calendar.set(year, month, day, hour, minute, second);
   }
 
 public static int daysInMonth(int luna, int an) {

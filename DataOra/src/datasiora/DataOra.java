@@ -51,34 +51,72 @@ public static int daysInMonth(int luna, int an) {
 	return 0;
 }
 
-public static int compareDays(DataOra dateTime1, DataOra dateTime2) {
-	
-	int days=0;
-	return days;
-	
-}
+//private static int diffDay(DataOra dateTime1, DataOra dateTime2) {
+//	int day=0;
+//	for(int ziua1=dateTime1.ziua;ziua1<daysInMonth(dateTime1.luna, dateTime1.anul);ziua1++) {
+//		day++;
+//	}day+=dateTime2.ziua;
+//	return day;
+//}
 
-public static DataOra spentTime(DataOra dateTime1, DataOra dateTime2) {
+
+//ALL MONTHS
+
+//public static int diffMonthYear(DataOra dateTime1, DataOra dateTime2) {
+//	int difMonth=0;
+//	if (dateTime1.anul==dateTime2.anul) {
+//		if (dateTime1.luna<=dateTime2.luna)
+//			difMonth= (dateTime2.luna-dateTime1.luna);
+//		else
+//			difMonth= (dateTime1.luna-dateTime2.luna);
+//	}else if (dateTime1.anul<dateTime2.anul) {
+//		difMonth = diffMonth(dateTime1, dateTime2);
+//	}else {
+//		difMonth = diffMonth(dateTime2, dateTime1);
+//	}
+//	return difMonth;
+//}
+//
+//
+//private static int diffMonth(DataOra dateTime1, DataOra dateTime2) {
+//	int difMonth=0;
+//	for(int luna1=dateTime1.luna;luna1<12;luna1++) {
+//		difMonth++;
+//	}difMonth+=dateTime2.luna+((diffYear(dateTime1,dateTime2)-1)*12);
+//	return difMonth;
+//}
+
+
+public static String spentTime(DataOra dateTime1, DataOra dateTime2) {
 	
 	int difYear=dateTime2.anul-dateTime1.anul;
 	int difMonth=dateTime2.luna-dateTime1.luna;
-	int difDay=0;
-	int difHour=0;
-	int difMinutes=0;
-	int difSeconds=0;
+	if(difMonth<0) {
+		difYear--;
+		difMonth=12-(difMonth*(-1));
+	}
+	int difDay=dateTime2.ziua-dateTime1.ziua;
+	if(difDay<0) {
+		difMonth--;
+		if(difMonth<0){
+			difMonth=12-(difMonth*(-1));
+			difYear--;
+		}
+		difDay=daysInMonth(dateTime1.luna,dateTime1.anul)-(difDay*(-1));
+	}
+	int difHour=timpScurs(dateTime1, dateTime2)[0];
+	int difMinutes=timpScurs(dateTime1, dateTime2)[1];
+	int difSeconds=timpScurs(dateTime1, dateTime2)[2];
 	
-	return new DataOra(difHour, difMinutes, difSeconds, difDay, difMonth, difYear);
+	return "ore: "+difHour+", minute: "+ difMinutes+", secunde: " +difSeconds+", zile: " +difDay+", luni: "+ difMonth+", ani: "+ difYear;
 	
 }
 
-  public static String timpScurs(DataOra t1, DataOra t2) {
+  public static int[] timpScurs(DataOra t1, DataOra t2) {
 
     int ora = 0;
     int minute = 0;
     int secunde = 0;
-    int ziua = t1.ziua - t2.ziua;
-    int luna = t1.luna - t2.luna;
-    int an = t1.anul - t2.anul;
     if (t1.ora != 0 && t2.ora != 0)
         ora = t2.ora - t1.ora;
       else if (t1.ora == 0 && t2.ora != 0)
@@ -105,7 +143,11 @@ public static DataOra spentTime(DataOra dateTime1, DataOra dateTime2) {
         secunde = secunde % 60;
         minute++;
       }
-    return "Timpul scurs: " + ora + " : " + minute + " : " + secunde + " zile " + ziua + ", luni " + luna + ", ani " + an;
+      int[] timp=new int[3];
+      timp[0]=ora;
+      timp[1]=minute;
+      timp[2]=secunde;
+    return timp;
   }
 
   public void setOra(int ora) {

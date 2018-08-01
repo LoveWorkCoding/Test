@@ -33,7 +33,6 @@ public DataOra() {
     this.anul = gregorianCalendar.YEAR;
   }
 
-public static compareDays
 
 public static DataOra spentTime(DataOra dateTime1, DataOra dateTime2) {
 	int difYear=dateTime2.anul-dateTime1.anul;
@@ -42,7 +41,12 @@ public static DataOra spentTime(DataOra dateTime1, DataOra dateTime2) {
 	int difHour=0;
 	int difMinutes=0;
 	int difSeconds=0;
+	return dateTime2;
 	
+	
+}
+
+public void ceaMaiTareFunctie(int variabilaSmechera) {
 	
 }
 

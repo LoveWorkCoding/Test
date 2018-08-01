@@ -33,6 +33,8 @@ public DataOra() {
     this.anul = gregorianCalendar.YEAR;
   }
 
+public static compareDays
+
 public static DataOra spentTime(DataOra dateTime1, DataOra dateTime2) {
 	int difYear=dateTime2.anul-dateTime1.anul;
 	int difMonth=dateTime2.luna-dateTime1.luna;
